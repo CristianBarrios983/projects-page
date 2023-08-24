@@ -4,18 +4,33 @@
 }
 
 body{
-    height: 100vh;
     font-family: 'Roboto Condensed', sans-serif;
     
     background: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
     background-repeat: no-repeat;
     background-size: cover;
 
-    padding: 1rem 4rem 0 4rem;
+    padding: 2rem 1rem 2rem 1rem;
 }
 
-h1{
-    margin-bottom: 1.5rem;
+.title{
+    font-size: 2.5rem;
+    margin-bottom: 1.2rem;
+    font-weight: 400 bold;
+    font-style: italic;
+}
+
+.paragraph{
+    margin-bottom: 2.5rem;
+    font-weight: 200 bold;
+}
+
+.grid{
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Para columnas ajustables */
+    grid-auto-flow: row;
+    gap: 30px;
 }
 
 .card{
@@ -30,7 +45,7 @@ h1{
     position: absolute;
     bottom: 0;
     left: 0;
-    background: hsla(180, 3%, 23%, 0.448);
+    background: hsla(180, 3%, 23%, 0.699);
     width: 100%;
     height: 100%;
     border-radius: 15px;
@@ -47,9 +62,10 @@ h1{
 }
 
 .card__img{
-    height: 150px;
+    height: 170px;
     overflow: hidden;
     margin-bottom: 10px;
+    border-radius: 15px;
 }
 
 .card__img > img{
@@ -60,10 +76,12 @@ h1{
 
 .card__title{
     margin-bottom: 10px;
+    font-size: 1.4rem;
+    font-weight: 400;
 }
 
-.card__spans > span{
-    font-size: .9rem;
+span{
+    font-weight: 300;
 }
 
 span > i{
@@ -78,12 +96,30 @@ span > i{
     color: blue;
 }
 
+.card__buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .card__buttons > a{
     text-decoration: none;
     background-color: #000;
     color: #fff;
-    padding: 5px 10px;
+    padding: .7rem 1rem;
     border-radius: 7px;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.card__buttons > a:hover{
+    border: 2px solid #000;
+    background-color: #fff;
+    color: #000;
+}
+
+.card__buttons > a:hover i{
+    color: #000;
 }
 
 a > i{
@@ -91,10 +127,40 @@ a > i{
     margin-right: 4px;
 }
 
-@media (max-width: 500px){
-    .flex{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+@media (min-width: 500px){
+    body{
+        padding: 3rem;
+    }
+
+    .grid{
+        gap: 20px;
+    }
+
+    .card{
+        width: 310px;
+    }
+
+    .card__buttons{
+        flex-direction: row;
+    }
+}
+
+@media (min-width:820px){
+    .title{
+        font-size: 3.2rem;
+    }
+
+    .paragraph{
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 1200px){
+    .card{
+        width: 340px;
+    }
+
+    .card__buttons > a{
+        padding: 1rem 1.5rem;
     }
 }
